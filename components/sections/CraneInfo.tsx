@@ -1,7 +1,7 @@
 const cranes = [
   { name: '카고크레인', desc: '5·11·15·18톤',      color: '#E85D24' },
   { name: '유압크레인', desc: '13 ~ 500톤',         color: '#1A2A3A' },
-  { name: '거미크레인', desc: '2·3·5·7톤',          color: '#E85D24' },
+  { name: '거미크레인', desc: '2·3·5·7톤',           color: '#E85D24' },
   { name: '고소작업차', desc: 'Wing 24·29·32·37',   color: '#1A2A3A' },
 ]
 
