@@ -1,209 +1,152 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-
-const navItems = [
-  { label: '회사소개', href: '#about' },
-  { label: '보유 장비', href: '#crane' },
-  { label: '서비스 지역', href: '#area' },
-]
+import { useState } from 'react'
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  // 드로어 열릴 때 배경 스크롤 막기
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [isOpen])
+  const [open, setOpen] = useState(false)
 
   return (
     <>
-      {/* ───── 헤더 바 ───── */}
-      <header
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 200,
-          height: '64px',
-          backgroundColor: scrolled ? '#1A2A3A' : 'transparent',
-          transition: 'background-color 0.3s ease',
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <div
-          style={{
-            width: '100%',
-            maxWidth: '1280px',
-            margin: '0 auto',
-            padding: '0 20px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-          className="header-inner"
-        >
-          {/* 로고 */}
-          <Link
-            href="/"
-            style={{
-              color: '#ffffff',
-              fontWeight: 700,
-              fontSize: '17px',
-              textDecoration: 'none',
-              letterSpacing: '-0.3px',
-              flexShrink: 0,
-            }}
-          >
-            ㈜평택크레인
-          </Link>
+      <header style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '0 72px',
+        height: '68px',
+        backgroundColor: '#1A2A3A',
+        position: 'sticky',
+        top: 0,
+        zIndex: 100,
+        width: '100%',
+      }}>
+        <a href="/" className="header-logo" style={{ textDecoration: 'none' }}>
+  충남크레인
+</a>
 
-          {/* PC 네비게이션 */}
-          <nav
-            className="pc-nav"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '32px',
-            }}
-          >
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                style={{
-                  color: 'rgba(255, 255, 255, 0.8)',
-                  fontSize: '14px',
-                  textDecoration: 'none',
-                  fontWeight: 500,
-                  transition: 'color 0.2s',
-                }}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href="tel:01053209981"
-              style={{
-                backgroundColor: '#E85D24',
-                color: '#ffffff',
-                padding: '8px 20px',
-                borderRadius: '999px',
-                fontSize: '14px',
-                fontWeight: 600,
-                textDecoration: 'none',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              상담하기
-            </a>
-          </nav>
+        {/* PC 네비 */}
+        <nav className="header-nav">
+          <a href="#about">회사소개</a>
+          <a href="#crane">보유 장비</a>
+          <a href="#area">서비스 지역</a>
+        </nav>
 
-          {/* 모바일 햄버거 버튼 */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="mobile-menu-btn"
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              color: '#ffffff',
-              fontSize: '22px',
-              padding: '4px',
-              lineHeight: 1,
-              display: 'none',
-            }}
-            aria-label={isOpen ? '메뉴 닫기' : '메뉴 열기'}
-          >
-            {isOpen ? '✕' : '☰'}
-          </button>
-        </div>
+        {/* PC 전화 버튼 */}
+        <a href="tel:041-588-7003" className="header-cta">
+          📞 041-588-7003
+        </a>
+
+        {/* 모바일 햄버거 */}
+        <button className="ham-btn" onClick={() => setOpen(true)} aria-label="메뉴 열기">
+          <span /><span /><span />
+        </button>
       </header>
 
-      {/* ───── 모바일 드로어 (헤더 밖에서 독립 fixed) ───── */}
-      {isOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            top: '64px',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: '#1A2A3A',
-            zIndex: 199,
-            display: 'flex',
-            flexDirection: 'column',
-            padding: '32px 24px',
-            overflowY: 'auto',
-          }}
-        >
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              style={{
-                color: '#ffffff',
-                fontSize: '19px',
-                textDecoration: 'none',
-                padding: '18px 0',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                fontWeight: 500,
-                display: 'block',
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <a
-            href="tel:01053209981"
-            onClick={() => setIsOpen(false)}
-            style={{
-              backgroundColor: '#E85D24',
-              color: '#ffffff',
-              padding: '16px',
-              borderRadius: '12px',
-              fontSize: '17px',
-              fontWeight: 700,
-              textAlign: 'center',
-              textDecoration: 'none',
-              marginTop: '28px',
-              display: 'block',
-            }}
-          >
-            상담하기
-          </a>
+      {/* 모바일 메뉴 */}
+      {open && (
+        <div className="mob-overlay" onClick={() => setOpen(false)}>
+          <div className="mob-dim" />
+          <div className="mob-panel" onClick={(e) => e.stopPropagation()}>
+            <button className="mob-close" onClick={() => setOpen(false)}>✕</button>
+            <a href="#about" onClick={() => setOpen(false)}>회사소개</a>
+            <a href="#crane" onClick={() => setOpen(false)}>보유 장비</a>
+            <a href="#area" onClick={() => setOpen(false)}>서비스 지역</a>
+          </div>
         </div>
       )}
 
       <style>{`
-        .pc-nav { display: flex !important; }
-        .mobile-menu-btn { display: none !important; }
+        .header-logo {
+          font-size: 20px;
+          font-weight: 900;
+          color: #ffffff;
+          letter-spacing: -0.5px;
+        }
+        .header-nav {
+          display: flex;
+          gap: 32px;
+        }
+        .header-nav a {
+          color: rgba(255,255,255,0.72);
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+        .header-nav a:hover { color: #ffffff; }
+        .header-cta {
+          background: #E85D24;
+          color: #ffffff;
+          font-size: 13px;
+          font-weight: 700;
+          padding: 10px 22px;
+          border-radius: 999px;
+          text-decoration: none;
+          white-space: nowrap;
+          transition: background 0.2s;
+        }
+        .header-cta:hover { background: #d04d1a; }
+        .ham-btn {
+          display: none;
+          flex-direction: column;
+          gap: 5px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 4px;
+        }
+        .ham-btn span {
+          display: block;
+          width: 22px;
+          height: 2px;
+          background: #ffffff;
+          border-radius: 2px;
+        }
+        .mob-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 200;
+          display: flex;
+        }
+        .mob-dim {
+          flex: 1;
+          background: rgba(0,0,0,0.4);
+        }
+        .mob-panel {
+          width: 185px;
+          background: rgba(18,28,42,0.97);
+          display: flex;
+          flex-direction: column;
+          padding-top: 14px;
+        }
+        .mob-close {
+          background: none;
+          border: none;
+          color: rgba(255,255,255,0.7);
+          font-size: 20px;
+          padding: 6px 16px;
+          cursor: pointer;
+          align-self: flex-end;
+        }
+        .mob-panel a {
+          display: block;
+          padding: 15px 22px;
+          color: rgba(255,255,255,0.82);
+          font-size: 14px;
+          font-weight: 600;
+          border-bottom: 1px solid rgba(255,255,255,0.07);
+          text-decoration: none;
+        }
+        .mob-panel a:hover { background: rgba(255,255,255,0.05); }
 
         @media (max-width: 768px) {
-          .pc-nav { display: none !important; }
-          .mobile-menu-btn { display: block !important; }
-        }
-
-        @media (min-width: 769px) {
-          .header-inner { padding: 0 80px !important; }
+          header {
+            padding: 0 18px !important;
+            height: 56px !important;
+          }
+          .header-logo { font-size: 16px !important; }
+          .header-nav { display: none !important; }
+          .header-cta { display: none !important; }
+          .ham-btn { display: flex !important; }
         }
       `}</style>
     </>
