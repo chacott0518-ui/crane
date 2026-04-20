@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: '㈜평택크레인 | 카고·유압·거미크레인 전문기업',
-    template: '%s | 평택크레인',
+    default: '충남크레인 | 카고·유압·거미크레인 전문기업',
+    template: '%s | 충남크레인',
   },
 
   description:
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ko_KR',
     url: siteUrl,
-    siteName: '㈜평택크레인',
-    title: '㈜평택크레인 | 중부권 No.1 크레인 전문기업',
+    siteName: '충남크레인',
+    title: '충남크레인 | 중부권 No.1 크레인 전문기업',
     description: '평택·안성·천안·오산 카고·유압·거미크레인, 스카이 고소작업차 임대 전문. 안전하고 정확한 작업을 보장합니다.',
     images: [
       {
@@ -105,8 +105,8 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
               '@id': siteUrl,
-              name: '㈜평택크레인',
-              alternateName: '평택크레인',
+              name: '충남크레인',
+              alternateName: '충남크레인',
               telephone: '010-5320-9981',
               url: siteUrl,
               image: `${siteUrl}/og-image.jpg`,
