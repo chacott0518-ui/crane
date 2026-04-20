@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: '㈜충남크레인(평택) | 카고·유압·거미크레인 전문기업',
-    template: '%s | 충남크레인 평택',
+    default: '충남크레인 | 카고·유압·거미크레인 전문기업',
+    template: '%s | 충남크레인 ',
   },
 
   description:
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     '아산크레인', '카고크레인', '유압크레인', '거미크레인', '스카이차', '크레인임대'
   ],
 
-  authors: [{ name: '㈜충남크레인(평택)' }],
-  creator: '㈜충남크레인(평택)',
-  publisher: '㈜충남크레인(평택)',
+  authors: [{ name: '충남크레인' }],
+  creator: '충남크레인',
+  publisher: '충남크레인',
 
   formatDetection: {
     email: false,
@@ -35,22 +35,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ko_KR',
     url: siteUrl,
-    siteName: '충남크레인 평택',
-    title: '㈜충남크레인 | 평택·충남권 No.1 크레인 전문기업',
+    siteName: '충남크레인',
+    title: '충남크레인 | 평택·충남권 No.1 크레인 전문기업',
     description: '평택 소재 충남크레인입니다. 안성·천안·오산 카고·유압·거미크레인, 스카이 고소작업차 임대 전문. 안전하고 정확한 작업을 보장합니다.',
     images: [
       {
         url: `${siteUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: '㈜충남크레인 평택 현장 작업 사진',
+        alt: '충남크레인 평택 현장 작업 사진',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: '㈜충남크레인 | 평택·충남권 No.1 크레인 전문기업',
+    title: '충남크레인 | 평택·충남권 No.1 크레인 전문기업',
     description: '평택·안성·천안·오산 크레인 임대 전문. 20년 노하우, 안전제일주의 충남크레인.',
     images: [`${siteUrl}/og-image.jpg`],
   },
@@ -104,7 +104,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
               '@id': siteUrl,
-              name: '㈜충남크레인(평택)',
+              name: '충남크레인',
               alternateName: '충남크레인',
               telephone: '041-588-7003',
               url: siteUrl,
