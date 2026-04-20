@@ -9,21 +9,21 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: '충남크레인 | 카고·유압·거미크레인 전문기업',
-    template: '%s | 충남크레인',
+    default: '㈜충남크레인(평택) | 카고·유압·거미크레인 전문기업',
+    template: '%s | 충남크레인 평택',
   },
 
   description:
-    '평택·안성·천안·오산 지역 카고크레인, 유압크레인, 거미크레인, 스카이 고소작업차 임대 전문. 20년 노하우로 안전제일, 신속정확, 합리적 가격을 약속드립니다. TEL: 010-5320-9981',
+    '충남크레인은 평택 합정동에 소재한 크레인 전문 기업입니다. 평택·안성·천안·오산 전 지역 카고크레인, 유압크레인, 거미크레인, 스카이차 임대 전문. 20년 노하우로 안전제일, 신속정확을 약속드립니다. TEL: 041-588-7003',
 
   keywords: [
-    '평택크레인', '안성크레인', '천안크레인', '오산크레인', '카고크레인', 
-    '유압크레인', '거미크레인', '스카이차', '고소작업차', '크레인임대'
+    '충남크레인', '평택크레인', '안성크레인', '천안크레인', '오산크레인', 
+    '아산크레인', '카고크레인', '유압크레인', '거미크레인', '스카이차', '크레인임대'
   ],
 
-  authors: [{ name: '㈜평택크레인' }],
-  creator: '㈜평택크레인',
-  publisher: '㈜평택크레인',
+  authors: [{ name: '㈜충남크레인(평택)' }],
+  creator: '㈜충남크레인(평택)',
+  publisher: '㈜충남크레인(평택)',
 
   formatDetection: {
     email: false,
@@ -35,23 +35,23 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ko_KR',
     url: siteUrl,
-    siteName: '충남크레인',
-    title: '충남크레인 | 중부권 No.1 크레인 전문기업',
-    description: '평택·안성·천안·오산 카고·유압·거미크레인, 스카이 고소작업차 임대 전문. 안전하고 정확한 작업을 보장합니다.',
+    siteName: '충남크레인 평택',
+    title: '㈜충남크레인 | 평택·충남권 No.1 크레인 전문기업',
+    description: '평택 소재 충남크레인입니다. 안성·천안·오산 카고·유압·거미크레인, 스카이 고소작업차 임대 전문. 안전하고 정확한 작업을 보장합니다.',
     images: [
       {
         url: `${siteUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: '㈜평택크레인 현장 작업 사진',
+        alt: '㈜충남크레인 평택 현장 작업 사진',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: '㈜평택크레인 | 중부권 No.1 크레인 전문기업',
-    description: '평택·안성·천안·오산 크레인 임대 전문. 20년 노하우, 안전제일주의.',
+    title: '㈜충남크레인 | 평택·충남권 No.1 크레인 전문기업',
+    description: '평택·안성·천안·오산 크레인 임대 전문. 20년 노하우, 안전제일주의 충남크레인.',
     images: [`${siteUrl}/og-image.jpg`],
   },
 
@@ -67,7 +67,6 @@ export const metadata: Metadata = {
     },
   },
 
-  // 구글은 verification 안에 넣어도 되지만, 네이버는 'other'에 넣어야 빌드 에러가 안 납니다.
   verification: {
     google: '3XmLHmXXBIIWxIZBne3Vf-BIv7AwTqFoogbTHznY0MY',
   },
@@ -105,12 +104,12 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
               '@id': siteUrl,
-              name: '충남크레인',
+              name: '㈜충남크레인(평택)',
               alternateName: '충남크레인',
-              telephone: '010-5320-9981',
+              telephone: '041-588-7003',
               url: siteUrl,
               image: `${siteUrl}/og-image.jpg`,
-              description: '평택, 안성, 천안, 오산 지역 크레인 및 고소작업차 임대 전문 기업',
+              description: '평택 합정동 소재, 충남 및 경기 남부 지역 크레인 및 고소작업차 임대 전문 기업',
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: '합정동 915-3',
