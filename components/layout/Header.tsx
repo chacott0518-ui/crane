@@ -30,17 +30,32 @@ export default function Header() {
           <a href="#area">서비스 지역</a>
         </nav>
 
-        {/* PC 전화 버튼 */}
-        <a href="tel:041-588-7003" className="header-cta">
-          📞 041-588-7003
-        </a>
+        {/* PC 전화 버튼 (가로 정렬로 수정) */}
+<div className="pc-tel-group" style={{ display: 'flex', flexDirection: 'row', gap: '12px', alignItems: 'center' }}>
+  <a href="tel:041-588-7003" className="header-cta">
+    📞 041-588-7003
+  </a>
+  <a href="tel:010-8840-7003" className="header-cta">
+    📞 010-8840-7003
+  </a>
+</div>
 
         {/* 모바일 햄버거 */}
         <button className="ham-btn" onClick={() => setOpen(true)} aria-label="메뉴 열기">
           <span /><span /><span />
         </button>
       </header>
-
+{/* 모바일 하단 고정 전화 바 - 여기부터 복사하세요 */}
+<div className="mobile-bottom-bar">
+  <a href="tel:010-8840-7003" className="m-btn">
+    <strong>010-8840-7003</strong>
+    <span>전화하기</span>
+  </a>
+  <a href="tel:041-588-7003" className="m-btn">
+    <strong>041-588-7003</strong>
+    <span>전화하기</span>
+  </a>
+</div>
       {/* 모바일 메뉴 */}
       {open && (
         <div className="mob-overlay" onClick={() => setOpen(false)}>
@@ -55,6 +70,63 @@ export default function Header() {
       )}
 
       <style>{`
+      /* PC 전화번호 그룹 디자인 */
+.pc-tel-group {
+  display: flex !important;
+}
+
+.header-cta {
+  background: #E85D24;
+  color: #ffffff;
+  /* 폰트 크기를 살짝 줄여 가로 정렬 시 여유 공간 확보 */
+  font-size: 13px; 
+  font-weight: 700;
+  /* 패딩을 조절해 버튼 높이를 헤더에 맞춤 */
+  padding: 8px 16px; 
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+/* 모바일에서는 PC용 버튼 그룹을 숨김 */
+@media (max-width: 1024px) {
+  .pc-tel-group {
+    display: none !important;
+  }
+}
+
+/* 헤더 패딩 조정 (버튼이 많아졌으므로 좌우 여백을 살짝 줄임) */
+header {
+  padding: 0 40px !important;
+}
+      /* 하단 고정바 디자인 */
+.mobile-bottom-bar {
+  display: none; /* 평소엔 숨김 */
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 64px;
+  background: #E85D24; /* 주황색 */
+  z-index: 150;
+}
+.m-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  border-right: 1px solid rgba(0,0,0,0.1);
+}
+.m-btn strong { font-size: 16px; font-weight: 800; }
+.m-btn span { font-size: 12px; }
+
+@media (max-width: 768px) {
+  .mobile-bottom-bar { display: flex; } /* 모바일에서만 보임 */
+}
         .header-logo {
           font-size: 20px;
           font-weight: 900;

@@ -47,9 +47,14 @@ export default function Hero() {
               <p className="hero-sub hero-white-90">크레인 전문기업</p>
             </div>
 
-            <a href="tel:041-588-7003" className="hero-tel hero-orange">
-              041-588-7003
-            </a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+  <a href="tel:041-588-7003" className="hero-tel hero-orange" style={{ marginBottom: 0 }}>
+    041-588-7003
+  </a>
+  <a href="tel:010-8840-7003" className="hero-tel hero-orange" style={{ marginTop: 0 }}>
+    010-8840-7003
+  </a>
+</div>
 
             <div className="hero-location">
               <span className="hero-location-bar" />
@@ -171,7 +176,7 @@ export default function Hero() {
             padding-right: 24px !important;
             padding-top: 20px !important;
             /* 하단 전화 바를 고려해 바닥 여백을 100px로 늘려 텍스트를 살짝 밀어 올렸습니다 */
-            padding-bottom: 100px !important; 
+            padding-bottom: 120px !important; 
             align-items: center !important; 
             display: flex !important;
           }

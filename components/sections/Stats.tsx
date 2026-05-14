@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 const stats = [
-  { number: 20,  suffix: '년+', label: '업력',     desc: '신뢰의 역사'   },
+  { number: 40,  suffix: '년+', label: '업력',     desc: '신뢰의 역사'   },
   { number: 500, suffix: '건+', label: '시공 실적', desc: '누적 프로젝트' },
   { number: 30,  suffix: '대+', label: '보유 장비', desc: '다양한 라인업' },
   { number: 0,   suffix: '%',  label: '안전사고',   desc: '안전제일주의'  },
